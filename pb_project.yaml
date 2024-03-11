@@ -1,0 +1,48 @@
+# Project name
+name: wyze_demo
+# Project's yaml schema version
+schema_version: 53
+# WH Connection Profile to use.
+connection: wyze_demo
+# Whether to allow inputs having no timestamps,
+# if true, data without timestamps are included when running models
+include_untimed: true
+# Model folders to use.
+model_folders:
+  - models
+# Entities in this project and their ids.
+entities:
+  - name: user
+    id_stitcher: models/customer_id_graph
+    id_types:
+      - user_id
+      - anonymous_id
+      - email
+      - shopify_customer_id
+      - device_id
+    serve_traits: # These are additional views created to deliver the feature table by these identifiers (useful for RETL activation)
+      - id_served: email
+        name: user_profile_table_by_email
+      - id_served: device_id
+        name: user_profile_table_by_device_id
+
+id_types:
+  - name: user_id
+  - name: shopify_customer_id
+  - name: device_id
+  - name: anonymous_id
+    filters:
+      - type: exclude
+        value: ""
+      - type: exclude
+        value: "unknown"
+      - type: exclude
+        value: "NaN"
+  - name: email
+    filters:
+      - type: include
+        regex: ".+@.+"
+      - type: exclude
+        value: "test@company.com"
+python_requirements:
+  - profiles-pycorelib
