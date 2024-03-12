@@ -42,8 +42,8 @@ models:
         - days_since_account_creation
         - account_signup_date
         - days_since_last_seen
-        - first_name
-        - last_name
+        - account_first_name
+        - account_last_name
         - user_email
         - account_state
         - account_zipcode
@@ -223,7 +223,7 @@ var_groups:
           from: inputs/rsMarketingIdentifies
           description: Number of days since loyalty account was created
       - entity_var:
-          name: first_name
+          name: account_first_name
           description: First name of the customer
           select: first_value(first_name)
           from: inputs/rsShopifyOrderCompleted
@@ -232,7 +232,7 @@ var_groups:
             order_by:
               - timestamp desc
       - entity_var:
-          name: last_name
+          name: account_last_name
           description: Last name of the customer
           select: first_value(last_name)
           from: inputs/rsShopifyOrderCompleted
@@ -270,14 +270,12 @@ var_groups:
 
       - entity_var:
           name: account_state
-          select: coalesce({{user.Var("android_account_updates")}}:state::text, {{user.Var("ios_account_updates")}}:state::text  )
-          where: State from latest account update from IOS or Android
+          select: coalesce({{user.Var("ios_account_updates")}}:state::varchar,{{user.Var("android_account_updates")}}:state::varchar)
           description: Zip where the account is located
 
       - entity_var:
           name: account_zipcode
-          select: coalesce({{user.Var("android_account_updates")}}:zipcode::text, {{user.Var("ios_account_updates")}}:zipcode::text  )
-          where: Zipcode from latest account update from IOS or Android
+          select: coalesce({{user.Var("ios_account_updates")}}:zipcode::varchar,{{user.Var("android_account_updates")}}:zipcode::varchar)
           description: Zip where the account is located
 
       - entity_var:
