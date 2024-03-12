@@ -281,8 +281,7 @@ var_groups:
       - entity_var:
           name: account_username
           select: coalesce({{user.Var("android_account_updates")}}:username::text, {{user.Var("ios_account_updates")}}:username::text  )
-          where: Username from latest account update from IOS or Android
-          description: Zip where the account is located
+          description: username used in the app
 
       - entity_var:
           name: device_count
@@ -308,7 +307,7 @@ var_groups:
       - entity_var:
           name: subscription_start_date
           description: Subscription start date
-          select: min(subscription_start_date::date)
+          select: min(INVOICE_DATE::date)
           from: models/sqlSubscriptionDetails
       - entity_var:
           name: subscription_invoice_total
