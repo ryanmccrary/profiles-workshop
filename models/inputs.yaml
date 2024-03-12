@@ -262,4 +262,25 @@ inputs:
         - select: ANONYMOUS_ID
           type: anonymous_id
           entity: user
-
+  - name: rsAndroidAccountUpdated
+    app_defaults: 
+      table: WYZE_DEMO.ANDROID_APP.ACCOUNT_UPDATED
+      occurred_at_col: timestamp
+      ids:
+        - select: lower(USER_ID)
+          type: email
+          entity: user
+        - select: USERNAME
+          type: user_id
+          entity: user
+  - name: rsIOSAccountUpdated
+    app_defaults: 
+      table: WYZE_DEMO.IOS_APP.ACCOUNT_UPDATED
+      occurred_at_col: timestamp
+      ids:
+        - select: USERNAME
+          type: user_id
+          entity: user
+        - select: lower(USER_ID)
+          type: email
+          entity: user

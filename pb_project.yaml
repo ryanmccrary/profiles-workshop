@@ -22,9 +22,9 @@ entities:
       - device_id
     serve_traits: # These are additional views created to deliver the feature table by these identifiers (useful for RETL activation)
       - id_served: email
-        name: user_profile_table_by_email
+        name: customer_profile_by_email
       - id_served: device_id
-        name: user_profile_table_by_device_id
+        name: customer_profile_by_device_id
 
 id_types:
   - name: user_id
