@@ -56,6 +56,7 @@ models:
         - account_type
         - install_type
         - device_details
+        - subscription_propensity
 #         - last_transaction_value
 #         - highest_transaction_value
 #         - median_transaction_value
@@ -70,7 +71,7 @@ models:
 #         - has_personal_loan
 #         - has_auto_loan
 #         - has_insurance_coverage
-#         - propensity_to_apply_for_loan
+
 #         - propensity_to_apply_for_credit_card
 #         - avg_units_per_transaction
 #         - total_carts
@@ -173,11 +174,14 @@ var_groups:
 #           select: round(right(random(), 1)/10)
 #           from: inputs/rsOrderCreated
 #           description: Does the customer have an equifax recommended insurance plan
-#       - entity_var:
-#           name: propensity_to_apply_for_loan
-#           select: right(random(), 2)/100
-#           from: inputs/rsPages
-#           description: Likelihood customer will apply for loan in next 7 days
+      - entity_var:
+          name: subscription_propensity
+          select: | 
+            case 
+                when {{user.Var("subscription_type")}} is null  
+                and {{user.Var("device_count")}} > 0
+                then right(random(), 2)/1 end
+          description: Likelihood customer will apply for loan in next 7 days
 #       - entity_var:
 #           name: propensity_to_apply_for_credit_card
 #           select: right(random(), 2)/100
@@ -299,7 +303,7 @@ var_groups:
       - entity_var:
           name: subscription_type
           description: Current subscription level
-          select: first_value(subscription_type)
+          select: first_value(subscription_type ignore nulls)
           from: models/sqlSubscriptionDetails
           window:
             order_by:
