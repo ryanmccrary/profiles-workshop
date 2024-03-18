@@ -30,6 +30,9 @@ id_types:
   - name: user_id
   - name: shopify_customer_id
   - name: device_id
+    filters:
+      - type: exclude
+        value: "carol.foster@example.com"
   - name: anonymous_id
     filters:
       - type: exclude
