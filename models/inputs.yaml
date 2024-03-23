@@ -181,8 +181,11 @@ inputs:
       table: WYZE_DEMO.IOT_CONNECTED_DEVICE_EVENTS.TRACKS
       occurred_at_col: timestamp
       ids:
-        - select: USER_ID
+        - select: case when lower(user_id) not like '%@%com' then user_id end
           type: device_id
+          entity: user
+        - select: case when lower(user_id) like '%@%com' then user_id end
+          type: USER_ID
           entity: user
   - name: rsMarketingAddedToCart
     app_defaults: 
