@@ -185,7 +185,7 @@ inputs:
           type: device_id
           entity: user
         - select: case when lower(user_id) like '%@%com' then user_id end
-          type: USER_ID
+          type: user_id
           entity: user
   - name: rsMarketingAddedToCart
     app_defaults: 
