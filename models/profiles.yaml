@@ -180,7 +180,7 @@ var_groups:
             case 
                 when {{user.Var("subscription_type")}} is null  
                 and {{user.Var("device_count")}} > 0
-                then right(random(), 2)/1 end
+                then FLOOR((right(random(),2)/100) *(100-62+1))+62 end
           description: Likelihood customer will apply for loan in next 7 days
 #       - entity_var:
 #           name: propensity_to_apply_for_credit_card
