@@ -184,8 +184,8 @@ inputs:
         - select: case when lower(user_id) not like '%@%com' then user_id end
           type: device_id
           entity: user
-        - select: case when lower(user_id) like '%@%com' then user_id end
-          type: user_id
+        - select: case when lower(user_id) like '%@%com' then lower(user_id) end
+          type: email
           entity: user
   - name: rsMarketingAddedToCart
     app_defaults: 
