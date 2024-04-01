@@ -47,5 +47,9 @@ id_types:
         regex: ".+@.+"
       - type: exclude
         value: "test@company.com"
+      - type: exclude
+        sql:
+          select: other_id
+          from: models/email_exclusions
 python_requirements:
   - profiles-pycorelib

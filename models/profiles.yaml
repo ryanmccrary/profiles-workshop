@@ -1,4 +1,15 @@
 models:
+#SQL Model(s)
+  - name: email_exclusions
+    model_type: sql_template
+    model_spec:
+      validity_time: 24h # 1 day
+      materialization:
+        output_type: ephemeral
+        run_type: discrete
+      single_sql: "Select other_id from wyze_demo.rudderstack.id_exclusions where other_id_type = 'email'" #Sample table which can include any type of exclusion
+
+#ID Stitching Model(s)
   - name: customer_id_graph
     model_type: id_stitcher
     model_spec:
@@ -31,7 +42,8 @@ models:
         - from: inputs/rsShopifyOrderCompleted
         - from: inputs/rsAndroidAccountUpdated
         - from: inputs/rsIOSAccountUpdated
-  # Remove the section below, if you don't want to generate a feature table
+
+# Customer 360 Model(s)
   - name: customer_profile
     model_type: feature_table_model
     model_spec:
