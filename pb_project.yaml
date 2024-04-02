@@ -41,6 +41,10 @@ id_types:
         value: "unknown"
       - type: exclude
         value: "NaN"
+      - type: exclude
+        sql:
+          select: anonymous_id
+          from: models/anonymous_id_exclusions
   - name: email
     filters:
       - type: include

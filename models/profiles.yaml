@@ -1,13 +1,4 @@
 models:
-#SQL Model(s)
-  - name: email_exclusions
-    model_type: sql_template
-    model_spec:
-      validity_time: 24h # 1 day
-      materialization:
-        output_type: ephemeral
-        run_type: discrete
-      single_sql: "Select other_id from wyze_demo.rudderstack.id_exclusions where other_id_type = 'email'" #Sample table which can include any type of exclusion
 
 #ID Stitching Model(s)
   - name: customer_id_graph
@@ -69,6 +60,35 @@ models:
         - install_type
         - device_details
         - subscription_propensity
+
+# Defining Cohort(s)        
+  - name: commercial_customers
+    model_type: entity_cohort
+    model_spec:
+      extends: user/all
+      time_grain: "day"
+      materialization:
+        output_type: table
+      filter_pipeline:
+        - type: include #important to note this filter
+          value: "{{ user.Var('account_type') }} = 'Commercial'"
+      serve_traits_360:
+        name: commercial_customers_by_email 
+        using_ids:
+          - id: email
+
+  - name: commercial_customer_profiles
+    model_type: feature_table_model
+    model_spec:
+      validity_time: 24h # 1 day
+      entity_cohort: models/commercial_customers
+      features:
+        - customer_device_count
+        - customer_signup_date
+
+
+# Defining Features
+
 
 var_groups:
   - name: user_vars
@@ -271,3 +291,18 @@ var_groups:
                     ) WITHIN GROUP (ORDER BY order_date ASC)
           from: inputs/rsShopifyOrderCompleted
           description: JSON Array of all devices purchased
+
+  - name: commercial_customer_vars
+    entity_cohort: models/commercial_customers
+    vars:
+      - entity_var:
+          name: customer_device_count
+          description: Total number of devices purchased
+          select: count(distinct device_id )
+          from: inputs/rsShopifyOrderCompleted
+
+      - entity_var:
+          name: customer_signup_date
+          select: min(timestamp::date)
+          from: inputs/rsMarketingIdentifies
+          description: Date account was created

@@ -233,7 +233,7 @@ inputs:
       table: WYZE_DEMO.MARKETING_WEBSITE.PRODUCT_VIEWED
       occurred_at_col: timestamp
       ids:
-        - select: ANONYMOUS_ID
+        - select: anonymous_id
           type: anonymous_id
           entity: user
   - name: rsMarketingTracks
@@ -244,7 +244,7 @@ inputs:
         - select: lower(USER_ID)
           type: email
           entity: user
-        - select: ANONYMOUS_ID
+        - select: anonymous_id
           type: anonymous_id
           entity: user
   - name: rsShopifyOrderCompleted
