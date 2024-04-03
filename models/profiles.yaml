@@ -71,11 +71,11 @@ models:
         output_type: table
       filter_pipeline:
         - type: include #important to note this filter
-          value: "{{ user.Var('account_type') }} = 'Commercial'"
-      serve_traits_360:
-        name: commercial_customers_by_email 
-        using_ids:
-          - id: email
+          value: "{{user.Var(\"account_type\")}} = 'Commercial'"
+    #   serve_traits_360:
+    #     name: commercial_customers_by_email 
+    #     using_ids:
+    #       - id: email
 
   - name: commercial_customer_profiles
     model_type: feature_table_model
