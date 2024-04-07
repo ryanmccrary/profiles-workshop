@@ -1,7 +1,7 @@
 # Project name
 name: wyze_demo
 # Project's yaml schema version
-schema_version: 53
+schema_version: 54
 # WH Connection Profile to use.
 connection: wyze_demo
 # Whether to allow inputs having no timestamps,
@@ -25,7 +25,6 @@ entities:
         name: customer_profile_by_email
       - id_served: device_id
         name: customer_profile_by_device_id
-
 id_types:
   - name: user_id
   - name: shopify_customer_id

@@ -1,7 +1,6 @@
 inputs:
-
   - name: rsAndroidAccountCreated
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.ANDROID_APP.ACCOUNT_CREATED
       occurred_at_col: timestamp
       ids:
@@ -12,7 +11,7 @@ inputs:
           type: device_id
           entity: user
   - name: rsAndroidLiveView
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.ANDROID_APP.LIVE_VIEW
       occurred_at_col: timestamp
       ids:
@@ -23,7 +22,7 @@ inputs:
           type: device_id
           entity: user
   - name: rsAndroidLogin
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.ANDROID_APP.LOGIN
       occurred_at_col: timestamp
       ids:
@@ -34,7 +33,7 @@ inputs:
           type: device_id
           entity: user
   - name: rsAndroidTracks
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.ANDROID_APP.TRACKS
       occurred_at_col: timestamp
       ids:
@@ -42,7 +41,7 @@ inputs:
           type: email
           entity: user
   - name: rsAndroidVideoClipViewed
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.ANDROID_APP.VIDEO_CLIP_VIEWED
       occurred_at_col: timestamp
       ids:
@@ -53,7 +52,7 @@ inputs:
           type: email
           entity: user
   - name: rsSubServiceRenewal
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.BACKEND_SUBSCRIPTION_SERVICE.SUBSCRIPTION_RENEWAL
       occurred_at_col: timestamp
       ids:
@@ -67,7 +66,7 @@ inputs:
           type: shopify_customer_id
           entity: user
   - name: rsSubServiceStart
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.BACKEND_SUBSCRIPTION_SERVICE.SUBSCRIPTION_START
       occurred_at_col: timestamp
       ids:
@@ -81,7 +80,7 @@ inputs:
           type: device_id
           entity: user
   - name: rsSubServiceUpgrade
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.BACKEND_SUBSCRIPTION_SERVICE.SUBSCRIPTION_UPGRADE
       occurred_at_col: timestamp
       ids:
@@ -95,7 +94,7 @@ inputs:
           type: anonymous_id
           entity: user
   - name: rsSubServiceTrack
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.BACKEND_SUBSCRIPTION_SERVICE.TRACKS
       occurred_at_col: timestamp
       ids:
@@ -103,7 +102,7 @@ inputs:
           type: anonymous_id
           entity: user
   - name: rsIOSAccountCreated
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.IOS_APP.ACCOUNT_CREATED
       occurred_at_col: timestamp
       ids:
@@ -114,7 +113,7 @@ inputs:
           type: email
           entity: user
   - name: rsIOSLiveView
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.IOS_APP.LIVE_VIEW
       occurred_at_col: timestamp
       ids:
@@ -125,7 +124,7 @@ inputs:
           type: email
           entity: user
   - name: rsIOSLogin
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.IOS_APP.LOGIN
       occurred_at_col: timestamp
       ids:
@@ -136,7 +135,7 @@ inputs:
           type: email
           entity: user
   - name: rsIOSTracks
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.IOS_APP.TRACKS
       occurred_at_col: timestamp
       ids:
@@ -144,7 +143,7 @@ inputs:
           type: email
           entity: user
   - name: rsIOSVideoClipViewed
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.IOS_APP.VIDEO_CLIP_VIEWED
       occurred_at_col: timestamp
       ids:
@@ -155,7 +154,7 @@ inputs:
           type: device_id
           entity: user
   - name: rsDeviceCameraActivated
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.IOT_CONNECTED_DEVICE_EVENTS.CAMERA_ACTIVATED
       occurred_at_col: timestamp
       ids:
@@ -166,7 +165,7 @@ inputs:
           type: device_id
           entity: user
   - name: rsDeviceMotionDetected
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.IOT_CONNECTED_DEVICE_EVENTS.MOTION_DETECTED
       occurred_at_col: timestamp
       ids:
@@ -177,7 +176,7 @@ inputs:
           type: device_id
           entity: user
   - name: rsDeviceTracks
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.IOT_CONNECTED_DEVICE_EVENTS.TRACKS
       occurred_at_col: timestamp
       ids:
@@ -188,7 +187,7 @@ inputs:
           type: email
           entity: user
   - name: rsMarketingAddedToCart
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.MARKETING_WEBSITE.ADDED_TO_CART
       occurred_at_col: timestamp
       ids:
@@ -196,7 +195,7 @@ inputs:
           type: anonymous_id
           entity: user
   - name: rsMarketingFormSubmit
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.MARKETING_WEBSITE.FORM_SUBMIT
       occurred_at_col: timestamp
       ids:
@@ -207,7 +206,7 @@ inputs:
           type: email
           entity: user
   - name: rsMarketingIdentifies
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.MARKETING_WEBSITE.IDENTIFIES
       occurred_at_col: timestamp
       ids:
@@ -221,7 +220,7 @@ inputs:
           type: email
           entity: user
   - name: rsMarketingPages
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.MARKETING_WEBSITE.PAGES
       occurred_at_col: timestamp
       ids:
@@ -229,7 +228,7 @@ inputs:
           type: anonymous_id
           entity: user
   - name: rsMarketingProductViewed
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.MARKETING_WEBSITE.PRODUCT_VIEWED
       occurred_at_col: timestamp
       ids:
@@ -237,7 +236,7 @@ inputs:
           type: anonymous_id
           entity: user
   - name: rsMarketingTracks
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.MARKETING_WEBSITE.TRACKS
       occurred_at_col: timestamp
       ids:
@@ -248,7 +247,7 @@ inputs:
           type: anonymous_id
           entity: user
   - name: rsShopifyOrderCompleted
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.SHOPIFY_STORE.ORDER_COMPLETED
       occurred_at_col: timestamp
       ids:
@@ -261,12 +260,12 @@ inputs:
         - select: SHOPIFY_CUSTOMER_ID
           type: shopify_customer_id
           entity: user
-        # WE SHOULD IGNORE THIS ANONYMOUS ID AFTER FIRST RUN OF ID GRAPH  
+        # WE SHOULD IGNORE THIS ANONYMOUS ID AFTER FIRST RUN OF ID GRAPH
         - select: ANONYMOUS_ID
           type: anonymous_id
           entity: user
   - name: rsAndroidAccountUpdated
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.ANDROID_APP.ACCOUNT_UPDATED
       occurred_at_col: timestamp
       ids:
@@ -277,7 +276,7 @@ inputs:
           type: user_id
           entity: user
   - name: rsIOSAccountUpdated
-    app_defaults: 
+    app_defaults:
       table: WYZE_DEMO.IOS_APP.ACCOUNT_UPDATED
       occurred_at_col: timestamp
       ids:

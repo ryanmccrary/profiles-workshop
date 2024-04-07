@@ -1,5 +1,5 @@
 models:
-#SQL Model(s) for pb_project.yaml
+  #SQL Model(s) for pb_project.yaml
   - name: email_exclusions
     model_type: sql_template
     model_spec:
@@ -8,7 +8,6 @@ models:
         output_type: ephemeral
         run_type: discrete
       single_sql: "Select other_id from wyze_demo.rudderstack.id_exclusions where other_id_type = 'email'" #Sample table which can include any type of exclusion
-
   - name: anonymous_id_exclusions
     model_type: sql_template
     model_spec:
@@ -17,8 +16,7 @@ models:
         output_type: ephemeral
         run_type: discrete
       single_sql: "select distinct anonymous_id from wyze_demo.marketing_website.tracks where context_violation_errors is not null" #Exclude anonymous IDs from the marketing site for folks that had errors
-
-#SQL Model(s) for used in entity_vars
+      #SQL Model(s) for used in entity_vars
   - name: rsTracksUnionPages
     model_type: sql_template
     model_spec:
@@ -45,7 +43,6 @@ models:
         - select: "anonymous_id"
           type: anonymous_id
           entity: user
-
   - name: sqlSubscriptionDetails
     model_type: sql_template
     model_spec:
