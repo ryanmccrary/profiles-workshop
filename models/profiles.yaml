@@ -5,8 +5,8 @@ models:
     model_spec:
       validity_time: 24h # 1 day
       entity_key: user
-      materialization:
-        run_type: incremental
+      # materialization:
+      #   run_type: incremental
       edge_sources:
         - from: inputs/rsAndroidAccountCreated
         # - from: inputs/rsAndroidLiveView

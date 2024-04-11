@@ -4,6 +4,7 @@ models:
     model_type: sql_template
     model_spec:
       validity_time: 24h # 1 day
+      occurred_at_col: timestamp
       materialization:
         output_type: ephemeral
         run_type: discrete
@@ -12,6 +13,7 @@ models:
     model_type: sql_template
     model_spec:
       validity_time: 24h # 1 day
+      occurred_at_col: timestamp
       materialization:
         output_type: ephemeral
         run_type: discrete
@@ -21,6 +23,7 @@ models:
     model_type: sql_template
     model_spec:
       validity_time: 24h # 1 day
+      occurred_at_col: timestamp
       materialization:
         output_type: ephemeral
         run_type: discrete
@@ -47,6 +50,7 @@ models:
     model_type: sql_template
     model_spec:
       validity_time: 24h # 1 day
+      occurred_at_col: INVOICE_DATE
       materialization:
         output_type: ephemeral
         run_type: discrete
