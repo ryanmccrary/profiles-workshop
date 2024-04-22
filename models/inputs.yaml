@@ -1,7 +1,7 @@
 inputs:
   - name: rsAndroidAccountCreated
     app_defaults:
-      table: WYZE_DEMO.ANDROID_APP.ACCOUNT_CREATED
+      table: ANDROID_APP.ACCOUNT_CREATED
       occurred_at_col: timestamp
       ids:
         - select: lower(USER_ID)
@@ -12,7 +12,7 @@ inputs:
           entity: user
   - name: rsAndroidLiveView
     app_defaults:
-      table: WYZE_DEMO.ANDROID_APP.LIVE_VIEW
+      table: ANDROID_APP.LIVE_VIEW
       occurred_at_col: timestamp
       ids:
         - select: lower(USER_ID)
@@ -23,7 +23,7 @@ inputs:
           entity: user
   - name: rsAndroidLogin
     app_defaults:
-      table: WYZE_DEMO.ANDROID_APP.LOGIN
+      table: ANDROID_APP.LOGIN
       occurred_at_col: timestamp
       ids:
         - select: lower(USER_ID)
@@ -34,7 +34,7 @@ inputs:
           entity: user
   - name: rsAndroidTracks
     app_defaults:
-      table: WYZE_DEMO.ANDROID_APP.TRACKS
+      table: ANDROID_APP.TRACKS
       occurred_at_col: timestamp
       ids:
         - select: lower(USER_ID)
@@ -42,7 +42,7 @@ inputs:
           entity: user
   - name: rsAndroidVideoClipViewed
     app_defaults:
-      table: WYZE_DEMO.ANDROID_APP.VIDEO_CLIP_VIEWED
+      table: ANDROID_APP.VIDEO_CLIP_VIEWED
       occurred_at_col: timestamp
       ids:
         - select: DEVICE_ID
@@ -53,7 +53,7 @@ inputs:
           entity: user
   - name: rsSubServiceRenewal
     app_defaults:
-      table: WYZE_DEMO.BACKEND_SUBSCRIPTION_SERVICE.SUBSCRIPTION_RENEWAL
+      table: BACKEND_SUBSCRIPTION_SERVICE.SUBSCRIPTION_RENEWAL
       occurred_at_col: timestamp
       ids:
         - select: DEVICE_ID
@@ -67,7 +67,7 @@ inputs:
           entity: user
   - name: rsSubServiceStart
     app_defaults:
-      table: WYZE_DEMO.BACKEND_SUBSCRIPTION_SERVICE.SUBSCRIPTION_START
+      table: BACKEND_SUBSCRIPTION_SERVICE.SUBSCRIPTION_START
       occurred_at_col: timestamp
       ids:
         - select: ANONYMOUS_ID
@@ -81,7 +81,7 @@ inputs:
           entity: user
   - name: rsSubServiceUpgrade
     app_defaults:
-      table: WYZE_DEMO.BACKEND_SUBSCRIPTION_SERVICE.SUBSCRIPTION_UPGRADE
+      table: BACKEND_SUBSCRIPTION_SERVICE.SUBSCRIPTION_UPGRADE
       occurred_at_col: timestamp
       ids:
         - select: SHOPIFY_CUSTOMER_ID
@@ -95,7 +95,7 @@ inputs:
           entity: user
   - name: rsSubServiceTrack
     app_defaults:
-      table: WYZE_DEMO.BACKEND_SUBSCRIPTION_SERVICE.TRACKS
+      table: BACKEND_SUBSCRIPTION_SERVICE.TRACKS
       occurred_at_col: timestamp
       ids:
         - select: ANONYMOUS_ID
@@ -103,7 +103,7 @@ inputs:
           entity: user
   - name: rsIOSAccountCreated
     app_defaults:
-      table: WYZE_DEMO.IOS_APP.ACCOUNT_CREATED
+      table: IOS_APP.ACCOUNT_CREATED
       occurred_at_col: timestamp
       ids:
         - select: DEVICE_ID
@@ -114,7 +114,7 @@ inputs:
           entity: user
   - name: rsIOSLiveView
     app_defaults:
-      table: WYZE_DEMO.IOS_APP.LIVE_VIEW
+      table: IOS_APP.LIVE_VIEW
       occurred_at_col: timestamp
       ids:
         - select: DEVICE_ID
@@ -125,7 +125,7 @@ inputs:
           entity: user
   - name: rsIOSLogin
     app_defaults:
-      table: WYZE_DEMO.IOS_APP.LOGIN
+      table: IOS_APP.LOGIN
       occurred_at_col: timestamp
       ids:
         - select: DEVICE_ID
@@ -136,7 +136,7 @@ inputs:
           entity: user
   - name: rsIOSTracks
     app_defaults:
-      table: WYZE_DEMO.IOS_APP.TRACKS
+      table: IOS_APP.TRACKS
       occurred_at_col: timestamp
       ids:
         - select: lower(USER_ID)
@@ -144,7 +144,7 @@ inputs:
           entity: user
   - name: rsIOSVideoClipViewed
     app_defaults:
-      table: WYZE_DEMO.IOS_APP.VIDEO_CLIP_VIEWED
+      table: IOS_APP.VIDEO_CLIP_VIEWED
       occurred_at_col: timestamp
       ids:
         - select: lower(USER_ID)
@@ -155,7 +155,7 @@ inputs:
           entity: user
   - name: rsDeviceCameraActivated
     app_defaults:
-      table: WYZE_DEMO.IOT_CONNECTED_DEVICE_EVENTS.CAMERA_ACTIVATED
+      table: IOT_CONNECTED_DEVICE_EVENTS.CAMERA_ACTIVATED
       occurred_at_col: timestamp
       ids:
         - select: USER_ID
@@ -166,7 +166,7 @@ inputs:
           entity: user
   - name: rsDeviceMotionDetected
     app_defaults:
-      table: WYZE_DEMO.IOT_CONNECTED_DEVICE_EVENTS.MOTION_DETECTED
+      table: IOT_CONNECTED_DEVICE_EVENTS.MOTION_DETECTED
       occurred_at_col: timestamp
       ids:
         - select: USER_ID
@@ -177,7 +177,7 @@ inputs:
           entity: user
   - name: rsDeviceTracks
     app_defaults:
-      table: WYZE_DEMO.IOT_CONNECTED_DEVICE_EVENTS.TRACKS
+      table: IOT_CONNECTED_DEVICE_EVENTS.TRACKS
       occurred_at_col: timestamp
       ids:
         - select: case when lower(user_id) not like '%@%com' then user_id end
@@ -188,7 +188,7 @@ inputs:
           entity: user
   - name: rsMarketingAddedToCart
     app_defaults:
-      table: WYZE_DEMO.MARKETING_WEBSITE.ADDED_TO_CART
+      table: MARKETING_WEBSITE.ADDED_TO_CART
       occurred_at_col: timestamp
       ids:
         - select: ANONYMOUS_ID
@@ -196,7 +196,7 @@ inputs:
           entity: user
   - name: rsMarketingFormSubmit
     app_defaults:
-      table: WYZE_DEMO.MARKETING_WEBSITE.FORM_SUBMIT
+      table: MARKETING_WEBSITE.FORM_SUBMIT
       occurred_at_col: timestamp
       ids:
         - select: ANONYMOUS_ID
@@ -207,7 +207,7 @@ inputs:
           entity: user
   - name: rsMarketingIdentifies
     app_defaults:
-      table: WYZE_DEMO.MARKETING_WEBSITE.IDENTIFIES
+      table: MARKETING_WEBSITE.IDENTIFIES
       occurred_at_col: timestamp
       ids:
         - select: ANONYMOUS_ID
@@ -221,7 +221,7 @@ inputs:
           entity: user
   - name: rsMarketingPages
     app_defaults:
-      table: WYZE_DEMO.MARKETING_WEBSITE.PAGES
+      table: MARKETING_WEBSITE.PAGES
       occurred_at_col: timestamp
       ids:
         - select: ANONYMOUS_ID
@@ -229,7 +229,7 @@ inputs:
           entity: user
   - name: rsMarketingProductViewed
     app_defaults:
-      table: WYZE_DEMO.MARKETING_WEBSITE.PRODUCT_VIEWED
+      table: MARKETING_WEBSITE.PRODUCT_VIEWED
       occurred_at_col: timestamp
       ids:
         - select: anonymous_id
@@ -237,7 +237,7 @@ inputs:
           entity: user
   - name: rsMarketingTracks
     app_defaults:
-      table: WYZE_DEMO.MARKETING_WEBSITE.TRACKS
+      table: MARKETING_WEBSITE.TRACKS
       occurred_at_col: timestamp
       ids:
         - select: lower(USER_ID)
@@ -248,7 +248,7 @@ inputs:
           entity: user
   - name: rsShopifyOrderCompleted
     app_defaults:
-      table: WYZE_DEMO.SHOPIFY_STORE.ORDER_COMPLETED
+      table: SHOPIFY_STORE.ORDER_COMPLETED
       occurred_at_col: timestamp
       ids:
         - select: lower(EMAIL)
@@ -266,7 +266,7 @@ inputs:
           entity: user
   - name: rsAndroidAccountUpdated
     app_defaults:
-      table: WYZE_DEMO.ANDROID_APP.ACCOUNT_UPDATED
+      table: ANDROID_APP.ACCOUNT_UPDATED
       occurred_at_col: timestamp
       ids:
         - select: lower(USER_ID)
@@ -277,7 +277,7 @@ inputs:
           entity: user
   - name: rsIOSAccountUpdated
     app_defaults:
-      table: WYZE_DEMO.IOS_APP.ACCOUNT_UPDATED
+      table: IOS_APP.ACCOUNT_UPDATED
       occurred_at_col: timestamp
       ids:
         - select: USERNAME
