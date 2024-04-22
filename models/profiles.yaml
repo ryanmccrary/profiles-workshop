@@ -64,7 +64,26 @@ models:
         - subscription_start_date
         - subscription_invoice_total
         - subscription_propensity
- 
+
+       # Defining Cohort(s)
+  - name: commercial_customers
+    model_type: entity_cohort
+    model_spec:
+      extends: user/all
+      time_grain: "day"
+      materialization:
+        output_type: table
+      filter_pipeline:
+        - type: include #important to note this filter
+          value: "{{user.Var(\"account_type\")}} = 'Commercial'"
+  - name: commercial_customer_profiles
+    model_type: feature_table_model
+    model_spec:
+      validity_time: 24h # 1 day
+      entity_cohort: models/commercial_customers
+      features:
+        - customer_device_count
+        - customer_signup_date 
 # Defining Features
 var_groups:
   - name: user_vars
@@ -258,3 +277,16 @@ var_groups:
           from: inputs/rsShopifyOrderCompleted
           description: JSON Array of all devices purchased
 
+  - name: commercial_customer_vars
+    entity_cohort: models/commercial_customers
+    vars:
+      - entity_var:
+          name: customer_device_count
+          description: Total number of devices purchased
+          select: count(distinct device_id )
+          from: inputs/rsShopifyOrderCompleted
+      - entity_var:
+          name: customer_signup_date
+          select: min(timestamp::date)
+          from: inputs/rsMarketingIdentifies
+          description: Date account was created
