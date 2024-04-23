@@ -202,10 +202,6 @@ var_groups:
           name: live_view_count
           select: count(event)
           from: inputs/rsIOSLiveView
-      - entity_var:
-          name: upgrade_count
-          select: count(subscription_type)
-          from: inputs/rsSubServiceUpgrade
 
   - name: commercial_customer_vars
     entity_cohort: models/commercial_customers
