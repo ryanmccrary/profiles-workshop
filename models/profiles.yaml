@@ -5,32 +5,13 @@ models:
     model_spec:
       validity_time: 24h # 1 day
       entity_key: user
-      # materialization:
-      #   run_type: incremental
+      materialization:
+        run_type: incremental
       edge_sources:
         - from: inputs/rsAndroidAccountCreated
-        # - from: inputs/rsAndroidLiveView
-        # - from: inputs/rsAndroidLogin
-        # - from: inputs/rsAndroidTracks
-        # - from: inputs/rsAndroidVideoClipViewed
-        # - from: inputs/rsSubServiceRenewal
         - from: inputs/rsSubServiceStart
-        # - from: inputs/rsSubServiceUpgrade
-        # - from: inputs/rsSubServiceTrack
         - from: inputs/rsIOSAccountCreated
-        # - from: inputs/rsIOSLiveView
-        # - from: inputs/rsIOSLogin
-        # - from: inputs/rsIOSTracks
-        # - from: inputs/rsIOSVideoClipViewed
-        # - from: inputs/rsDeviceCameraActivated
-        # - from: inputs/rsDeviceMotionDetected
-        # - from: inputs/rsDeviceTracks
-        # - from: inputs/rsMarketingAddedToCart
-        # - from: inputs/rsMarketingFormSubmit
         - from: inputs/rsMarketingIdentifies
-        # - from: inputs/rsMarketingPages
-        # - from: inputs/rsMarketingProductViewed
-        # - from: inputs/rsMarketingTracks
         - from: inputs/rsShopifyOrderCompleted
         - from: inputs/rsAndroidAccountUpdated
         - from: inputs/rsIOSAccountUpdated
@@ -53,11 +34,9 @@ models:
         - last_order_date
         - is_churned_7_days
         - account_username
-        - subscription_type
-        - subscription_start_date
-        - subscription_invoice_total
         - subscription_propensity
         - live_view_count
+        - subscription_type
 
        # Defining Cohort(s)
   - name: commercial_customers
@@ -199,21 +178,11 @@ var_groups:
           name: subscription_type
           description: Current subscription level
           select: first_value(subscription_type)
-          from: models/sqlSubscriptionDetails
+          from: inputs/rsSubServiceStart
           where: subscription_type is not null
           window:
             order_by:
               - INVOICE_DATE desc
-      - entity_var:
-          name: subscription_start_date
-          description: Subscription start date
-          select: min(INVOICE_DATE::date)
-          from: models/sqlSubscriptionDetails
-      - entity_var:
-          name: subscription_invoice_total
-          description: Subscription services revenue only
-          select: sum(INVOICE_AMOUNT::numeric(12,2))
-          from: models/sqlSubscriptionDetails
       - entity_var:
           name: account_signup_date
           select: min(timestamp::date)
@@ -233,6 +202,10 @@ var_groups:
           name: live_view_count
           select: count(event)
           from: inputs/rsIOSLiveView
+      - entity_var:
+          name: upgrade_count
+          select: count(subscription_type)
+          from: inputs/rsSubServiceUpgrade
 
   - name: commercial_customer_vars
     entity_cohort: models/commercial_customers
