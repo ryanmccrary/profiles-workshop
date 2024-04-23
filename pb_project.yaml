@@ -3,7 +3,6 @@ name: wyze_demo
 # Project's yaml schema version
 schema_version: 54
 # WH Connection Profile to use.
-# connection: wyze_demo
 connection: workshop_trial_account
 
 # Whether to allow inputs having no timestamps,
