@@ -57,6 +57,7 @@ models:
         - subscription_start_date
         - subscription_invoice_total
         - subscription_propensity
+        - live_view_count
 
        # Defining Cohort(s)
   - name: commercial_customers
@@ -228,6 +229,10 @@ var_groups:
           select: any_value(array_construct('Self-Install', 'Pro-Install')[ABS(MOD(Random(),2))]::text)
           from: inputs/rsShopifyOrderCompleted
           description: Self or Pro (who installed the devices)
+      - entity_var: 
+          name: live_view_count
+          select: count(event)
+          from: inputs/rsIOSLiveView
 
   - name: commercial_customer_vars
     entity_cohort: models/commercial_customers
