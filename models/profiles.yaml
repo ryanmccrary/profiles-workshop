@@ -84,6 +84,53 @@ models:
       features:
         - customer_device_count
         - customer_signup_date 
+
+#   - name: &model_name_30_days churn_30_days_model
+#     model_type: python_model
+#     model_spec:
+#       occurred_at_col: timestamp
+#       entity_key: user
+#       validity_time: 24h # 1 day
+#       py_repo_url: https://github.com/rudderlabs/rudderstack-profiles-classifier.git
+
+#       train:
+#         file_extension: .json
+#         file_validity: 168h # If the last trained model is older than this, then the model will be trained again,
+#         inputs: &inputs_30_days
+#           - models/user_vars # inputs to materialise the required data for model
+#         config:
+#           data: &model_data_configs_30_days
+#             label_column: subscription_start_date # Name of column for which we want to find predictions
+#             label_value: 1 # Value of label column for which prediction is generated
+#             prediction_horizon_days: 30 # Number of days in future for which we want to predict
+#             output_profiles_ml_model: *model_name_30_days # Name of output model based on current model to dinstinguish between multiple models
+#             eligible_users: days_since_last_seen<=90
+#             inputs: *inputs_30_days
+
+          
+#           preprocessing: &model_prep_configs_30_days
+#             ignore_features:
+#               - user_email
+#               - account_first_name
+#               - account_last_name
+#               - account_username
+#               - subscription_propensity
+
+#       predict:
+#         inputs: *inputs_30_days
+#         config:
+#           data: *model_data_configs_30_days # Use the same config as training
+#           preprocessing: *model_prep_configs_30_days # Use the same config as training
+#           outputs:
+#             column_names:
+#               percentile: &percentile_name_30_days percentile_churn_score_30_days # Name of column in output table having percentile score
+#               score: churn_score_30_days # Name of column in output table having probabilistic score
+#             feature_meta_data: &feature_meta_data_30_days
+#               features:
+#                 - name: *percentile_name_30_days
+#                   description: 'Percentile of churn score. Higher the percentile, higher the probability of churn'
+
+#       <<: *feature_meta_data_30_days
 # Defining Features
 var_groups:
   - name: user_vars

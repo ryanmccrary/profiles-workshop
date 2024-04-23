@@ -55,5 +55,5 @@ id_types:
         sql:
           select: other_id
           from: models/email_exclusions
-# python_requirements:
-#   - profiles-pycorelib
+python_requirements:
+  - profiles-pycorelib
