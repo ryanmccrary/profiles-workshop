@@ -79,20 +79,6 @@ inputs:
         - select: DEVICE_ID
           type: device_id
           entity: user
-  - name: rsSubServiceUpgrade
-    app_defaults:
-      table: BACKEND_SUBSCRIPTION_SERVICE.SUBSCRIPTION_UPGRADE
-      occurred_at_col: timestamp
-      ids:
-        - select: SHOPIFY_CUSTOMER_ID
-          type: shopify_customer_id
-          entity: user
-        - select: DEVICE_ID
-          type: device_id
-          entity: user
-        - select: ANONYMOUS_ID
-          type: anonymous_id
-          entity: user
   - name: rsSubServiceTrack
     app_defaults:
       table: BACKEND_SUBSCRIPTION_SERVICE.TRACKS
@@ -285,4 +271,19 @@ inputs:
           entity: user
         - select: lower(USER_ID)
           type: email
+          entity: user
+          
+  - name: rsSubServiceUpgrade
+    app_defaults:
+      table: BACKEND_SUBSCRIPTION_SERVICE.SUBSCRIPTION_UPGRADE
+      occurred_at_col: timestamp
+      ids:
+        - select: SHOPIFY_CUSTOMER_ID
+          type: shopify_customer_id
+          entity: user
+        - select: DEVICE_ID
+          type: device_id
+          entity: user
+        - select: ANONYMOUS_ID
+          type: anonymous_id
           entity: user
